@@ -1,0 +1,42 @@
+class Solution {
+    public Node sortedInsert(Node head, int x) {
+        
+        Node element=new Node(x);
+        Node next1=head;
+        Node prev1=null;
+        while(next1.data<=x &&next1.next!=null)
+        {
+            prev1=next1;
+            next1=next1.next;
+        }
+        if(next1==head)
+        {
+            if(next1.data>x)
+            {
+            element.next=next1;
+            next1.prev=element;
+            head=element;
+            }
+            else
+            {
+                next1.next=element;
+                element.prev=next1;
+            }
+        }
+        else if(next1.next==null &&next1.data<x&&prev1.data<x)
+        {
+            next1.next=element;
+            element.prev=next1;
+            element.next=null;   
+        }
+        else
+        {
+            prev1.next=element;
+            next1.prev=element;
+            element.prev=prev1;
+            element.next=next1;
+        }
+        return head;
+        
+    }
+}

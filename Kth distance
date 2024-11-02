@@ -1,0 +1,23 @@
+class Solution {
+    public boolean checkDuplicatesWithinK(int[] arr, int k) {
+
+        HashMap<Integer,Integer> h=new HashMap<Integer,Integer>();
+        for(int i=0;i<arr.length;i++)
+        {
+            Integer c=h.get(arr[i]);
+            if(c==null)
+            {
+                h.put(arr[i],i);
+            }
+            else
+            {
+                int num=h.get(arr[i]);
+                if(i-num<=k)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}

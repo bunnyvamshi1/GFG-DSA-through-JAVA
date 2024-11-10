@@ -1,0 +1,37 @@
+class Solution {
+    public static ArrayList<Integer> findUnion(int a[], int b[]) {
+        int i=0;
+        int j=0;
+        ArrayList<Integer> l=new ArrayList<>();
+        while(i<a.length && j<b.length)
+        {
+            if(a[i]<b[j])
+            {
+                l.add(a[i]);
+                i++;
+            }
+            else if(b[j]<a[i])
+            {
+                l.add(b[j]);
+                j++;
+            }
+            else
+            {
+                l.add(a[i]);
+                i++;
+                j++;
+            }
+        }
+        while(i<a.length)
+        {
+            l.add(a[i]);
+            i++;
+        }
+        while(j<b.length)
+        {
+            l.add(b[j]);
+            j++;
+        }
+        return l;
+    }
+}

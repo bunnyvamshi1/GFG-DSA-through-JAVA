@@ -1,0 +1,23 @@
+class Solution {
+    static boolean canAttend(int[][] arr) {
+
+        Arrays.sort(arr,(x,y)->Integer.compare(x[1],y[1]));
+        int start=arr[0][0];
+        int end=arr[0][1];
+        for(int i=1;i<arr.length;i++)
+        {
+            if(arr[i][0]<end)
+            {
+                return false;
+            }
+            if(start>arr[i][0])
+            {
+                return false;
+            }
+            start=arr[i][0];
+            end=arr[i][1];
+            
+        }
+        return true;
+    }
+}

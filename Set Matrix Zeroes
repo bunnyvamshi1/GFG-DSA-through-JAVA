@@ -1,0 +1,34 @@
+class Solution {
+    public void setMatrixZeroes(int[][] mat) {
+        List<List<Integer>> index=new ArrayList<>();
+        for(int i=0;i<mat.length;i++)
+        {
+            for(int j=0;j<mat[0].length;j++)
+            {
+                if(mat[i][j]==0)
+                {
+                    List<Integer> l=new ArrayList<>();
+                    l.add(i);
+                    l.add(j);
+                    index.add(l);
+                }
+            }
+        }
+        for(int i=0;i<index.size();i++)
+        {
+            List<Integer> p=new ArrayList<>();
+            p=index.get(i);
+            int row=p.get(0);
+            int column=p.get(1);
+            for(int r=0;r<mat[0].length;r++)
+            {
+                mat[row][r]=0;
+            }
+            for(int c=0;c<mat.length;c++)
+            {
+                mat[c][column]=0;
+            }
+        }
+        
+    }
+}

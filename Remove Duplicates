@@ -1,0 +1,23 @@
+class Solution {
+    String removeDups(String s) {
+  
+        List<Character> l=new ArrayList<>();
+        int i=0;
+        String res="";
+        while(i<s.length())
+        {
+            if(l.contains(s.charAt(i)))
+            {
+                
+                i++;
+            }
+            else
+            {
+                res=res+s.charAt(i);
+                l.add(s.charAt(i));
+                i++;
+            }
+        }
+        return res;
+    }
+}

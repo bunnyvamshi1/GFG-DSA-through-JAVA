@@ -1,0 +1,32 @@
+class Solution {
+    double power(double b, int e) {
+        
+        double ans=1.0;
+        long n=e;
+        if(n<0)
+        {
+            n=-1*n;
+        }
+        while(n>0)
+        {
+            if(n%2==0)
+            {
+                b=b*b;
+                n=n/2;
+            }
+            else
+            {
+                ans=ans*b;
+                n=n-1;
+            }
+        }
+        if(e<0)
+        {
+            ans=(double)1.0/(double)ans;
+        }
+        return ans;
+        
+        
+        
+    }
+}
